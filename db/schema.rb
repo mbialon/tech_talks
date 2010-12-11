@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101209215959) do
+ActiveRecord::Schema.define(:version => 20101211204255) do
+
+  create_table "comments", :force => true do |t|
+    t.text     "text"
+    t.integer  "talk_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "talks", :force => true do |t|
     t.string   "title"

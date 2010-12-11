@@ -1,0 +1,8 @@
+<h1>New comment</h1>
+
+<%= semantic_form_for [@talk, @comment] do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :text %>
+  <% end %>
+  <%= f.buttons %>
+<% end %>

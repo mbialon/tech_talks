@@ -8,3 +8,10 @@
     <%= link_to 'Destroy', talk_path(@talk), :confirm => "Are you sure?", :method => :delete %>
   </p>
 <% end %>
+
+<%= link_to 'New comment', new_talk_comment_path(@talk) %>
+
+<% @talk.comments.each do |c| %>
+  <p><%= c.text %></p>
+  <p><%= c.created_at %> | <%= c.user.email %></p>
+<% end %>
