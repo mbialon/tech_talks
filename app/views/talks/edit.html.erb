@@ -1,0 +1,9 @@
+<h1>Edit talk</h1>
+
+<%= semantic_form_for @talk do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :title %>
+    <%= f.input :abstract %>
+  <% end %>
+  <%= f.buttons %>
+<% end %>
