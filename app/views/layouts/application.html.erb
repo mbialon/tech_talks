@@ -8,6 +8,8 @@
   <%= formtastic_stylesheet_link_tag %>
 </head>
 <body>
+  <a href="/"><h1>Tech Talks</h1></a>
+
   <% if user_signed_in? %>
     <%= current_user.email %>
     <%= link_to 'Sign out', destroy_user_session_path %>
