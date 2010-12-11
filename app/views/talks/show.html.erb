@@ -1,8 +1,10 @@
 <h2><%= @talk.title %></h2>
 <p><%= @talk.created_at %> | <%= @talk.user.email %></p>
 <p><%= @talk.abstract %></p>
-<p>
-  <%= link_to 'Edit', edit_talk_path(@talk) %>
-  |
-  <%= link_to 'Destroy', talk_path(@talk), :confirm => "Are you sure?", :method => :delete %>
-</p>
+<% if user_signed_in? && @talk.user == current_user %>
+  <p>
+    <%= link_to 'Edit', edit_talk_path(@talk) %>
+    |
+    <%= link_to 'Destroy', talk_path(@talk), :confirm => "Are you sure?", :method => :delete %>
+  </p>
+<% end %>

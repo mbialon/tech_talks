@@ -25,10 +25,12 @@ class TalksController < ApplicationController
 
   def edit
     @talk = Talk.find(params[:id])
+    redirect_to talks_path if @talk.user != current_user
   end
   
   def update
     @talk = Talk.find(params[:id])
+    redirect_to talks_path if @talk.user != current_user
     @talk.update_attributes(params[:talk])
     if @talk.save
       redirect_to talk_path(@talk)
@@ -39,6 +41,7 @@ class TalksController < ApplicationController
 
   def destroy
     @talk = Talk.find(params[:id])
+    redirect_to talks_path if @talk.user != current_user
     @talk.destroy
     redirect_to talks_path
   end
