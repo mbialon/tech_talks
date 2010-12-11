@@ -1,6 +1,6 @@
 <h2><%= @talk.title %></h2>
 <p><%= @talk.created_at %> | <%= @talk.user.email %></p>
-<p><%= @talk.abstract %></p>
+<p><%= render_markdown(@talk.abstract) %></p>
 <% if user_signed_in? && @talk.user == current_user %>
   <p>
     <%= link_to 'Edit', edit_talk_path(@talk) %>
@@ -12,6 +12,6 @@
 <%= link_to 'New comment', new_talk_comment_path(@talk) %>
 
 <% @talk.comments.each do |c| %>
-  <p><%= c.text %></p>
+  <p><%= render_markdown(c.text) %></p>
   <p><%= c.created_at %> | <%= c.user.email %></p>
 <% end %>

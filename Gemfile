@@ -9,6 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'devise'
 gem 'formtastic'
+gem 'maruku'
 
 # Use unicorn as the web server
 # gem 'unicorn'

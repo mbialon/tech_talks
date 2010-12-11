@@ -5,5 +5,5 @@
 <% @talks.each do |talk| %>
   <h2><%= link_to h(talk.title), talk_path(talk) %></h2>
   <p><%= talk.created_at %> | <%= talk.user.email %></p>
-  <p><%= talk.abstract %></p>
+  <p><%= render_markdown(talk.abstract) %></p>
 <% end %>
