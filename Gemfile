@@ -12,6 +12,8 @@ gem 'formtastic'
 gem 'maruku'
 gem 'will_paginate'
 
+#gem 'jrails'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

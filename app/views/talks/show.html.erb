@@ -10,35 +10,48 @@
   </p>
 <% end %>
 
-<%= link_to 'New comment', new_talk_comment_path(@talk) %>
-
-
 <% if user_signed_in? %>
-	<%= render 'shared/attachment_form' %>
-	<%= link_to "Zapisz sie", new_talk_attendance_path(@talk) %> 
+  <%= link_to "Zapisz sie", new_talk_attendance_path(@talk) %>
 <% end %>
 
+<% if user_signed_in? %>
+<div class="kliker">
+<p>Wgraj plik:</p>
+</div>
+  <div class="attachment">
+	<%= render 'shared/attachment_form' %>
+	</div>
+<% end %>
+
+
 <% unless @talk.users.empty? %>
-	<p>Attendant users:</p> 
+	<p id="attendants">Zapisani kursanci:</p>
+	<div class="attendants">
 	<table>
 		<%= render @users %>
 	</table> 
 	<%= will_paginate @users, :param_name => :users_page%>
+	</div>
 <% end %>
 
 <% unless @talk.attachments.empty? %>
-	<p>Attachements:</p> 
+	<p id="attachments">Załączniki:</p>
+	<div class="attachments">
 	<ul>
 		<%= render @attachments%>
 	</ul> 
 	<%= will_paginate @attachments, :param_name => :attachments_page  %>
+	</div>
 <% end %>
 
 
 <% unless @talk.comments.empty? %>
-<p>Comments:</p>
+<p id="comments">Komentarze:</p>
+<div class="comments">
+<%= link_to 'New comment', new_talk_comment_path(@talk) %>
 	<table>
 	<%= render @comments %>
 	</table>
 	<%= will_paginate @comments,:param_name => :comments_page %>
-	<% end %>
+	</div>
+<% end %>

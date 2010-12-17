@@ -10,7 +10,7 @@ class AttachmentsController < ApplicationController
 			directory = "public/data"
 			path = File.join(directory, name)
 			File.open(path, "wb") { |f| f.write(upload['datafile'].read)}
-			@attachment = Attachment.new(:talk_id => talk_id, :path => path)
+			@attachment = Attachment.new(:talk_id => talk_id, :path => path, :filename => name)
 			if @attachment.save
 				flash[:success] = "Udalo sie"
 			else
