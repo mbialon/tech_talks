@@ -13,5 +13,10 @@ class AttachmentsController < ApplicationController
 			render :text => "Zapis failed"
 		end
     	end
+    	
+    	def show
+    		att = Attachment.find_by_id(params[:id])
+    		send_file att.path, :type=>"application/octet-stream"
+    	end
 		
 end
