@@ -1,6 +1,6 @@
 class AttendancesController < ApplicationController
 	
-	def create
+	def new
 		talk_id = params[:talk_id]
 		user_id = current_user.id
 		if Attendance.where(:talk_id => talk_id, :user_id => user_id).nil?
