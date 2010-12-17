@@ -11,8 +11,11 @@
 
 <%= link_to 'New comment', new_talk_comment_path(@talk) %>
 
-<%= render 'shared/attendance_form' %>
-<%= render 'shared/attachment_form' %>
+
+<% if user_signed_in? %>
+	<%= render 'shared/attendance_form' %>
+	<%= render 'shared/attachment_form' %>
+<% end %>
 
 <% unless @talk.users.empty? %>
 	<p>Attendant users:</p> 

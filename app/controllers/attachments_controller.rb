@@ -2,6 +2,10 @@ class AttachmentsController < ApplicationController
 	
 	def create
 		upload = params[:upload]
+		if upload.nil?
+			render :text => "Zapis failed"
+			return
+		end
 		name = upload['datafile'].original_filename
 		directory = "public/data"
 		path = File.join(directory, name)
