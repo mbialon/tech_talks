@@ -10,7 +10,6 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise'
 gem 'formtastic'
 gem 'maruku'
-gem 'will_paginate'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -34,10 +33,6 @@ gem 'will_paginate'
 # group :development, :test do
 #   gem 'webrat'
 # end
-
-group :development do
-	gem 'faker'
-end
 
 group :development, :test do
   gem 'capybara'

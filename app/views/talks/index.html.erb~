@@ -2,10 +2,8 @@
   <%= link_to 'New talk', new_talk_path %>
 <% end %>
 
-<%= will_paginate %>                      
 <% @talks.each do |talk| %>
   <h2><%= link_to h(talk.title), talk_path(talk) %></h2>
-  <p>Created by <b><%= talk.user.email %></b> on <b><%= talk.created_at.strftime("%d %b %Y")%></b></p>
+  <p><%= talk.created_at %> | <%= talk.user.email %></p>
   <p><%= render_markdown(talk.abstract) %></p>
 <% end %>
-<%= will_paginate %>
