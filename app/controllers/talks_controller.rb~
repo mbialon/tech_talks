@@ -2,11 +2,14 @@ class TalksController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
-    @talks = Talk.find :all
+    #@talks = Talk.find :all
+    @talks = Talk.find(:all).paginate(:page => params[:page], :per_page => 2)
   end
   
   def show
     @talk = Talk.find(params[:id])
+    @users = @talk.users.all.paginate(:page => params[:page], :per_page => 2)
+    @attendance = Attendance.new
   end
 
   def new

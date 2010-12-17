@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101217004950) do
+ActiveRecord::Schema.define(:version => 20101217063724) do
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "talk_id"
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "attendances", :force => true do |t|
     t.integer  "user_id"
@@ -23,6 +30,11 @@ ActiveRecord::Schema.define(:version => 20101217004950) do
     t.text     "text"
     t.integer  "talk_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "data_files", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

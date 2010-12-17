@@ -11,6 +11,16 @@
 
 <%= link_to 'New comment', new_talk_comment_path(@talk) %>
 
+<%= render 'shared/attendance_form' %>
+
+<% unless @talk.users.empty? %>
+	<p>Attendant users:</p> 
+	<table>
+		<%= render @users %>
+	</table> 
+	<%= will_paginate @users %>
+<% end %>
+
 <% @talk.comments.each do |c| %>
   <p><%= render_markdown(c.text) %></p>
   <p><%= c.created_at %> | <%= c.user.email %></p>

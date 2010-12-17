@@ -2,12 +2,18 @@ TechTalks::Application.routes.draw do
   devise_for :users
 
   root :to => "talks#index"
-
+  
   resources :talks do
     resources :comments
   end
   
   resources :attendances
+  resources :attachments
+  
+  
+  
+  
+    
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

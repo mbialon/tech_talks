@@ -12,6 +12,7 @@
 <%= link_to 'New comment', new_talk_comment_path(@talk) %>
 
 <%= render 'shared/attendance_form' %>
+<%= render 'shared/attachment_form' %>
 
 <% unless @talk.users.empty? %>
 	<p>Attendant users:</p> 
@@ -20,6 +21,15 @@
 	</table> 
 	<%= will_paginate @users %>
 <% end %>
+
+<% unless @talk.attachments.empty? %>
+	<p>Attachements:</p> 
+	<table>
+		<%= render @attachments %>
+	</table> 
+	<%= will_paginate @attachments %>
+<% end %>
+
 
 <% @talk.comments.each do |c| %>
   <p><%= render_markdown(c.text) %></p>

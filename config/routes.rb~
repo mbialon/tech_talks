@@ -2,10 +2,20 @@ TechTalks::Application.routes.draw do
   devise_for :users
 
   root :to => "talks#index"
+  #root :to => "upload#index"
 
   resources :talks do
     resources :comments
+    resources :upload
   end
+  
+  resources :attendances
+  
+  
+  
+  
+  match '/upload/', :to => 'upload#index'
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
