@@ -1,7 +1,9 @@
-<h2><%= @talk.title %></h2>
-<p class="smallfont"> Stworzony przez: <%= @talk.user.email %> w dniu: <%= trimDate(@talk.created_at) %></p>
-<p>Opis:<p>
+<h1><%= @talk.title %></h1>
+<p class="smallfont"> Temat stworzony przez: <%= @talk.user.email %> w dniu: <%= trimDate(@talk.created_at) %></p>
+Opis:
+<div class="talkcontent round">
 <p><%= render_markdown(@talk.abstract) %></p>
+</div>
 <% if user_signed_in? && @talk.user == current_user %>
   <p>
     <%= link_to 'Edit', edit_talk_path(@talk) %>

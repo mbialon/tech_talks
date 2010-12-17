@@ -3,7 +3,7 @@ class TalksController < ApplicationController
 
   def index
     #@talks = Talk.find :all
-    @talks = Talk.find(:all).paginate(:page => params[:page], :per_page => 2)
+    @talks = Talk.find(:all).paginate(:page => params[:page], :per_page => 3)
   end
   
   def show

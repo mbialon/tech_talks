@@ -4,8 +4,10 @@
 
 <%= will_paginate %>                      
 <% @talks.each do |talk| %>
-  <h2><%= link_to h(talk.title), talk_path(talk) %></h2>
-  <p>Created by <b><%= talk.user.email %></b> on <b><%= talk.created_at.strftime("%d %b %Y")%></b></p>
-  <p><%= render_markdown(talk.abstract) %></p>
+  <h1><%= link_to h(talk.title), talk_path(talk) %></h1>
+  Opis:
+  <div class="talkcontent round">
+    <p><%= render_markdown(talk.abstract) %></p>
+  </div>
 <% end %>
 <%= will_paginate %>
