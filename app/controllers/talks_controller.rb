@@ -8,8 +8,9 @@ class TalksController < ApplicationController
   
   def show
     @talk = Talk.find(params[:id])
-    @users = @talk.users.all.paginate(:page => params[:page], :per_page => 2)
-    @attachments = @talk.attachments.all.paginate(:page => params[:page], :per_page => 2)
+    @users = @talk.users.all.paginate(:page => params[:users_page], :per_page => 2)
+    @attachments = @talk.attachments.all.paginate(:page => params[:attachments_page], :per_page => 2)
+    @comments = @talk.comments.all.paginate(:page => params[:comments_page], :per_page => 2)
     @attendance = Attendance.new
     @attachment = Attachment.new
   end

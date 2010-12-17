@@ -1,5 +1,6 @@
 <h2><%= @talk.title %></h2>
-<p><%= @talk.created_at %> | <%= @talk.user.email %></p>
+<p class="smallfont"> Stworzony przez: <%= @talk.user.email %> w dniu: <%= trimDate(@talk.created_at) %></p>
+<p>Opis:<p>
 <p><%= render_markdown(@talk.abstract) %></p>
 <% if user_signed_in? && @talk.user == current_user %>
   <p>
@@ -22,19 +23,22 @@
 	<table>
 		<%= render @users %>
 	</table> 
-	<%= will_paginate @users %>
+	<%= will_paginate @users, :param_name => :users_page%>
 <% end %>
 
 <% unless @talk.attachments.empty? %>
 	<p>Attachements:</p> 
 	<ul>
-		<%= render @attachments %>
+		<%= render @attachments%>
 	</ul> 
-	<%= will_paginate @attachments %>
+	<%= will_paginate @attachments, :param_name => :attachments_page  %>
 <% end %>
 
 
-<% @talk.comments.each do |c| %>
-  <p><%= render_markdown(c.text) %></p>
-  <p><%= c.created_at %> | <%= c.user.email %></p>
-<% end %>
+<% unless @talk.comments.empty? %>
+<p>Comments:</p>
+	<table>
+	<%= render @comments %>
+	</table>
+	<%= will_paginate @comments,:param_name => :comments_page %>
+	<% end %>

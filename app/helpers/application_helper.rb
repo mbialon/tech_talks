@@ -4,7 +4,10 @@ module ApplicationHelper
   end
   
       def logo
-      	return image_tag("rails.png", :alt => "Tech Talks", :class => "round")
+      	return image_tag("logo.png", :alt => "Tech Talks", :class => "round")
     end
     
+    def trimDate(date)
+      date.strftime("%d %b %Y")
+    end
 end

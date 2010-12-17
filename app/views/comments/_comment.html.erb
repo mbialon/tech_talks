@@ -1,0 +1,8 @@
+<tr>
+<td>
+<%= render_markdown(comment.text) %>
+</td>
+<td>
+  by: <%= comment.user.email %> on: <%= trimDate(comment.created_at) %> 
+</td>
+<tr>
