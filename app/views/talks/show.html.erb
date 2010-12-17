@@ -15,15 +15,15 @@ Opis:
 <% if user_signed_in? %>
   <%= link_to "Zapisz sie", new_talk_attendance_path(@talk) %>
 <% end %>
+<br/>
 
 <% if user_signed_in? %>
-<div class="kliker">
-<p>Wgraj plik:</p>
-</div>
+<button id="wgrajplik">Wgraj plik</button>
   <div class="attachment">
 	<%= render 'shared/attachment_form' %>
 	</div>
 <% end %>
+<br/>
 
 <% unless @talk.users.empty? %>
 	<button id="attendants">Pokaż kursantów</button>

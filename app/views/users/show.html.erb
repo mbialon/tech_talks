@@ -1,0 +1,12 @@
+<h1>Profil użytkownika</h1>
+<h3>Tematy do których jesteś zapisany:</h3>
+<% unless @talks.empty? %>
+	<!--button id="attachments">Pokaż załączniki</button-->
+	<div class="talks">
+	<ol>
+		<%= render @talks%>
+	</ol> 
+	<%= will_paginate @talks, :param_name => :talks_page  %>
+	</div>
+<% end %>
+<br />

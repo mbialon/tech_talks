@@ -1,5 +1,7 @@
 TechTalks::Application.routes.draw do
 
+ #get "users/show"
+
   devise_for :users
 
   root :to => "talks#index"
@@ -12,6 +14,9 @@ TechTalks::Application.routes.draw do
     	get :download, :on => :member
   	end
   end
+  
+  match "/users/:id" => "users#show", :as => :user
+  #resources :users
 
   
   

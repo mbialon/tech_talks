@@ -18,7 +18,7 @@ var komentarzeShown = "Ukryj komentarze";
 //$("div.contentToChange p.firstparagraph:visible").slideUp("slow");
 
 //$("input.buttonAsize").click(function(){$("div.attachment").slideUp("slow")});
-$("div.kliker").click(function(){$("div.attachment").toggle("slow")});
+$("button#wgrajplik").click(function(){$("div.attachment").toggle("slow")});
 
 
 $("button#attendants").click(
