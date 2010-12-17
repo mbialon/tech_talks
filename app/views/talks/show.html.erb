@@ -13,8 +13,9 @@
 
 
 <% if user_signed_in? %>
-	<%= render 'shared/attendance_form' %>
+	<!--%= render 'shared/attendance_form' %-->
 	<%= render 'shared/attachment_form' %>
+		<%= link_to "Zapisz sie", talk_attendances_path(@talk), :method => :create %> 
 <% end %>
 
 <% unless @talk.users.empty? %>

@@ -1,9 +1,9 @@
 class AttendancesController < ApplicationController
 	
 	def create
-		talk_id = params[:attendance][:talk_id]
+		talk_id = params[:talk_id]
 		user_id = current_user.id
-		unless Attendance.where(:talk_id => talk_id, :user_id => user_id).nil?
+		if Attendance.where(:talk_id => talk_id, :user_id => user_id).nil?
 			@attendance = Attendance.new(:talk_id => talk_id, :user_id => user_id)
 			if @attendance.save
 				#redirect_to talks_path
@@ -12,9 +12,10 @@ class AttendancesController < ApplicationController
 				flash[:error] = "Nie zapisano"
 			end
 		else
-			flash[:error] = "Nie zapisano - uzytkownik juz zapisany"  
+			flash[:error] = "Nie zapisano - uzytkownik juz zapisany"
+			render :text => "User istnieje"
 		end
-		redirect_to request.fullpath
+		 
 	end
 
 end

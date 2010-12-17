@@ -6,9 +6,10 @@ TechTalks::Application.routes.draw do
   
   resources :talks do
     resources :comments
+    resources :attendances
   end
   
-  resources :attendances
+  
   
   resources :attachments do
   	  get :download, :on => :member
