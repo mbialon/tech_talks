@@ -1,7 +1,4 @@
-<%= form_for @attachment , :html => {:multipart => true} do |att| %>
-	<div>
-		<%= att.hidden_field :talk_id, :value => @talk.id  %>
-	</div>
+<%= form_for [@talk, @attachment] , :html => {:multipart => true} do |att| %>
 	<div>
 	<p><label for="upload_file">Select File</label> :
 	<%= file_field 'upload', 'datafile' %></p>
@@ -10,3 +7,5 @@
 		<%= att.submit "Dodaj" %>
 	</div>
 <% end %>
+
+

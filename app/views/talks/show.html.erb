@@ -27,9 +27,9 @@
 
 <% unless @talk.attachments.empty? %>
 	<p>Attachements:</p> 
-	<table>
+	<ul>
 		<%= render @attachments %>
-	</table> 
+	</ul> 
 	<%= will_paginate @attachments %>
 <% end %>
 

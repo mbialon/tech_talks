@@ -8,7 +8,7 @@
   <%= formtastic_stylesheet_link_tag %>
 </head>
 <body>
-  <a href="/"><h1>Tech Talks</h1></a>
+<%= render 'layouts/header' %>
 
   <% if user_signed_in? %>
     <%= current_user.email %>
@@ -24,6 +24,7 @@
   <p class="alert"><%= alert %></p>
 
   <%= yield %>
+  <%= render 'layouts/footer' %>
   <%= debug(params) if Rails.env.development? %>
 </body>
 </html>

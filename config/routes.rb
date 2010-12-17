@@ -7,13 +7,12 @@ TechTalks::Application.routes.draw do
   resources :talks do
     resources :comments
     resources :attendances
+    
+    resources :attachments do
+    	get :download, :on => :member
+  	end
   end
-  
-  
-  
-  resources :attachments do
-  	  get :download, :on => :member
-  end
+
   
   
   # The priority is based upon order of creation:

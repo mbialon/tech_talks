@@ -1,6 +1,4 @@
-<tr>
-	<td>
-		<%= link_to attachment.path, :controller => "attachments", :action => "download" %>
-	</td>
-</tr>
+<li>
+		<%= link_to attachment.path, download_talk_attachment_path(@talk), :action => "download" %>
+</li>
 
