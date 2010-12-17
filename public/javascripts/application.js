@@ -3,6 +3,16 @@
 
 
 $(document).ready(function(){
+
+var zapisaniHidden = "Pokaż kursantów";
+var zapisaniShown = "Ukryj kursantów";
+
+var zalacznikiHidden = "Pokaż załączniki";
+var zalacznikiShown = "Ukryj załączniki";
+
+
+var komentarzeHidden = "Pokaż komentarze";
+var komentarzeShown = "Ukryj komentarze";
     
 //$("div.contentToChange p.firstparagraph:hidden").slideDown("slow");
 //$("div.contentToChange p.firstparagraph:visible").slideUp("slow");
@@ -11,11 +21,49 @@ $(document).ready(function(){
 $("div.kliker").click(function(){$("div.attachment").toggle("slow")});
 
 
-$("p#attachments").click(function(){$("div.attachments").toggle("slow")});
+$("button#attendants").click(
+  function(){
+    if($("div.attendants").is(":hidden"))
+    {
+      $("button#attendants").text(zapisaniShown);
+    }
+    else
+    {
+      $("button#attendants").text(zapisaniHidden);
+    }
+    $("div.attendants").toggle("slow");
+    //$("button#attendants").text(zapisaniHidden);
+    
+  }
+);
 
-$("p#attendants").click(function(){$("div.attendants").toggle("slow")});
+$("button#attachments").click(
+  function(){
+    if($("div.attachments").is(":hidden"))
+    {
+      $("button#attachments").text(zalacznikiShown);
+    }
+    else
+    {
+      $("button#attachments").text(zalacznikiHidden);
+    }
+  $("div.attachments").toggle("slow")
+  }
+);
 
-$("p#comments").click(function(){$("div.comments").toggle("slow")});
+$("button#comments").click(
+  function(){
+    if($("div.comments").is(":hidden"))
+    {
+      $("button#comments").text(komentarzeShown);
+    }
+    else
+    {
+      $("button#comments").text(komentarzeHidden);
+    }
+  $("div.comments").toggle("slow")
+  }
+);
 
 
 

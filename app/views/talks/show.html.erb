@@ -25,9 +25,8 @@ Opis:
 	</div>
 <% end %>
 
-
 <% unless @talk.users.empty? %>
-	<p id="attendants">Zapisani kursanci:</p>
+	<button id="attendants">Pokaż kursantów</button>
 	<div class="attendants">
 	<table>
 		<%= render @users %>
@@ -35,9 +34,10 @@ Opis:
 	<%= will_paginate @users, :param_name => :users_page%>
 	</div>
 <% end %>
+<br />
 
 <% unless @talk.attachments.empty? %>
-	<p id="attachments">Załączniki:</p>
+	<button id="attachments">Pokaż załączniki</button>
 	<div class="attachments">
 	<ul>
 		<%= render @attachments%>
@@ -45,10 +45,10 @@ Opis:
 	<%= will_paginate @attachments, :param_name => :attachments_page  %>
 	</div>
 <% end %>
-
+<br />
 
 <% unless @talk.comments.empty? %>
-<p id="comments">Komentarze:</p>
+<button id="comments">Pokaż komentarze</button>
 <div class="comments">
 <%= link_to 'New comment', new_talk_comment_path(@talk) %>
 	<table>
@@ -57,3 +57,4 @@ Opis:
 	<%= will_paginate @comments,:param_name => :comments_page %>
 	</div>
 <% end %>
+<br />

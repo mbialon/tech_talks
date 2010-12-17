@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- saved from url=(0014)about:internet -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>JQuery Corner Demo</title>
+<style type="text/css">
+body {
+    font: Verdana,Arial,sans-serif;
+	 /* An explicit background color is required for Safari. */
+	 /* Otherwise your corner chunks will come out black!    */
+	background: #f8f0e0;
+}
+div.section { clear: left; }
+h1 { font-size: 150%; padding: 0 }
+h2 { background: #ccc; padding: 1px 20px;  }
+div.demo { 
+	float: left; width: 18em; padding: 20px; margin: 1em;
+    background: #c92; color:#000; text-align: center; font: verdana, arial, sans-serif;
+}
+div.fun  { margin: 2px; }
+</style>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.corner.js"></script>
+<script type="text/javascript">
+	$(function(){	// shorthand for $(document).ready() BTW
+        $('div.demo').each(function() {
+			// The text of the paragraphs in the rounded divs is also the
+			// jQuery code needed to create that effect. Cosmic.
+             eval($('p', this).text());
+        });
+        $('#main p').wrap("<code></code>");
+	});
+</script>
+</head>
+<body>
+<h1>jQuery Corner Demo</h1>
+<p>Now with more effects, thanks to <a href="http://www.malsup.com/jquery/corner/">Mike Alsup</a>!</p>
+<p><a href="jq-corner.html">How does this work? How do I use it?</a></p>
+<p><a href="jquery.corner.js">Just the source, please!</a></p>
+
+<div id="main">
+    <div class="section">
+    <h1>Available Corner Effects</h1>
+    </div>
+    <div class="demo"><h1>Round</h1> <p>$(this).corner();</p></div>
+    <div class="demo"><h1>Bevel</h1> <p>$(this).corner("bevel");</p></div>
+    <div class="demo"><h1>Notch</h1> <p>$(this).corner("notch");</p></div>
+    <div class="demo"><h1>Bite</h1>  <p>$(this).corner("bite");</p></div>
+    <div class="demo"><h1>Cool</h1>  <p>$(this).corner("cool");</p></div>
+    <div class="demo"><h1>Sharp</h1> <p>$(this).corner("sharp");</p></div>
+    <div class="demo"><h1>Slide</h1> <p>$(this).corner("slide");</p></div>
+    <div class="demo"><h1>Jut</h1>   <p>$(this).corner("jut");</p></div>
+    <div class="demo"><h1>Curl</h1>  <p>$(this).corner("curl");</p></div>
+    <div class="demo"><h1>Tear</h1>  <p>$(this).corner("tear");</p></div>
+    <div class="demo"><h1>Fray</h1>  <p>$(this).corner("fray");</p></div>
+    <div class="demo"><h1>Wicked</h1><p>$(this).corner("wicked");</p></div>
+    <div class="demo"><h1>Sculpt</h1><p>$(this).corner("sculpt");</p></div>
+    <div class="demo"><h1>Long</h1>  <p>$(this).corner("long");</p></div>
+    <div class="demo"><h1>Dog Ear</h1><p>$(this).corner("dog");</p></div>
+    <div class="demo"><h1>Dog2</h1><p>$(this).corner("dog2");</p></div>
+    <div class="demo"><h1>Dog3</h1><p>$(this).corner("dog3");</p></div>
+    
+    
+    <div class="section">
+    <h1>Choose Your Corner</h1>
+    <h2>Use <code>top, bottom, tl, tr, bl, br</code> to identify which corner to style</h2>
+    </div>
+    <div class="demo"><h1>Top Bevel</h1>        <p>$(this).corner("bevel top");</p></div>
+    <div class="demo"><h1>Top-Left Bite</h1>    <p>$(this).corner("bite tl");</p></div>
+    <div class="demo"><h1>Round Bottom</h1>     <p>$(this).corner("bottom");</p></div>
+    <div class="demo"><h1>Bottom-Left Notch</h1><p>$(this).corner("notch bl");</p></div>
+    <div class="demo"><h1>Top-Right Dog Ear</h1><p>$(this).corner("dog tr");</p></div>
+    <div class="demo"><h1>Top-Left, Bottom-Right Cool</h1><p>$(this).corner("cool tl br");</p></div>
+    
+    <div class="section">
+    <h1>Specify Size</h1>
+    <h2>Include a px value to specify the corner size</h2>
+    </div>
+    <div class="demo"><h1>Round 30px</h1> <p>$(this).corner("30px");</p></div>
+    <div class="demo"><h1>Round 5px</h1>  <p>$(this).corner("5px");</p></div>
+    <div class="demo"><h1>Cool 20px</h1>  <p>$(this).corner("cool 20px");</p></div>
+    <div class="demo"><h1>Sharp 20px</h1> <p>$(this).corner("sharp 20px");</p></div>
+    <div class="demo"><h1>Bite 30px</h1>  <p>$(this).corner("bite 30px");</p></div>
+    <div class="demo"><h1>Wicked 20px</h1><p>$(this).corner("wicked 20px");</p></div>
+    <div class="demo"><h1>Dog 20px</h1><p>$(this).corner("dog 20px");</p></div>
+    <div class="demo"><h1>Dog2 30px</h1><p>$(this).corner("dog2 30px");</p></div>
+    <div class="demo"><h1>Dog3 30px</h1><p>$(this).corner("dog3 30px");</p></div>
+    
+    <div class="section">
+    <h1>Mix and Match</h1>
+    <h2>Chain corner calls to achieve combined effects</h2>
+    </div>
+    <div class="demo"><h1>Round and Bevel</h1><p>$(this).corner( "bottom").corner("top bevel");</p></div>
+    <div class="demo"><h1>Round and Notch</h1><p>$(this).corner( "br top").corner("notch bl 20px");</p></div>
+    <div class="demo"><h1>Crazy</h1>          <p>$(this).corner("jut tl 20px").corner("dog tr 20px").corner("bite bl 15px").corner("notch br");</p></div>
+
+    <div class="section">
+    <h1>Fun Stuff</h1>
+    <h2>Interesting Side Effects</h2>
+    </div>
+    <div class="demo fun"><h1>Left Half of Arrow</h1> <p>$(this).corner("sharp tr br 20px");</p></div>
+    <div class="demo fun"><h1>Right Half of Arrow</h1><p>$(this).corner("sharp tl bl 20px");</p></div>
+</div> <!-- main -->
+</body>
+</html>
