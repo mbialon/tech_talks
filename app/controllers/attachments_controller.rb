@@ -14,7 +14,7 @@ class AttachmentsController < ApplicationController
 		end
     	end
     	
-    	def show
+    	def download
     		att = Attachment.find_by_id(params[:id])
     		send_file att.path, :type=>"application/octet-stream"
     	end

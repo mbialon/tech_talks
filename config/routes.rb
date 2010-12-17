@@ -8,7 +8,10 @@ TechTalks::Application.routes.draw do
   end
   
   resources :attendances
-  resources :attachments
+  
+  resources :attachments do
+  	  get :download, :on => :member
+  end
   
   
   # The priority is based upon order of creation:

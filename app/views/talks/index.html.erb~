@@ -1,9 +1,0 @@
-<% if user_signed_in? %>
-  <%= link_to 'New talk', new_talk_path %>
-<% end %>
-
-<% @talks.each do |talk| %>
-  <h2><%= link_to h(talk.title), talk_path(talk) %></h2>
-  <p><%= talk.created_at %> | <%= talk.user.email %></p>
-  <p><%= render_markdown(talk.abstract) %></p>
-<% end %>

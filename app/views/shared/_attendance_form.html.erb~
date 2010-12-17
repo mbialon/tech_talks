@@ -1,8 +1,0 @@
-<%= form_for @attendance do |att| %>
-	<div>
-		<%= f.hidden_field :atendance, :talk  %>
-	</div>
-	<div>
-		<%= f.submit "Zapisz sie" %>
-	</div>
-<% end %>
