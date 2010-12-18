@@ -42,20 +42,49 @@ Opis:
 <%= link_to 'New comment', new_talk_comment_path(@talk) %>
 
 <div id="accordion">
-<div>
-<h3><a href="#">Kursanci</a></h3>
-<div id="users_display_section"></div>
-</div>
-<div>
-<h3><a href="#">Załączniki</a></h3>
-<div id="attachments_display_section"></div>
-</div>
-<div>
-<h3><a href="#">Komentarze</a></h3>
-<div id="comments_display_section"></div>
+  <div class="round">
+    <h3 class="round" ><a href="#">Kursanci</a></h3>
+    <div id="users_display_section"></div>
+  </div>
+  <div class="round">
+    <h3 class="round"><a href="#">Załączniki</a></h3>
+    <div id="attachments_display_section"></div>
+  </div>
+  <div class="round">
+    <h3 class="round"><a href="#">Komentarze</a></h3>
+    <div id="comments_display_section"></div>
+  </div>
 </div>
 
-</div>
+
+<!--div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
+  <div>
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all">
+      
+      <a href="#">Kursanci</a>
+    </h3>
+    <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" id="users_display_section"></div>
+  </div>
+  <div>
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all">
+      
+      <a href="#">Załączniki</a>
+    </h3>
+    <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" id="attachments_display_section"></div>
+  </div>
+  <div>
+    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all">
+      
+      <a href="#">Komentarze</a>
+    </h3>
+    <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" id="comments_display_section"></div>
+  </div>
+</div-->
+
+
+
+
+
 
 <script language="javascript">
 $(document).ready(function(){
@@ -66,7 +95,7 @@ $(document).ready(function(){
     $('#accordion h3').click(function() {
 		$(this).next().toggle('slow');
 		return false;
-	}).next().hide();
+	}).next().hide();//*/
 });
 
 /*$(function(){
@@ -74,7 +103,7 @@ $(document).ready(function(){
 				// Accordion
 				$("#accordion").accordion({ header: "h3",
 								collapsible: true				});
-});*/
+});//*/
 
   
 </script>

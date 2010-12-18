@@ -135,3 +135,25 @@ footer nav {
   border-color: #F7EDE4;
   background-color: #F7EDE4;
 }
+
+#accordion div {
+  border: 1px;
+  border-color: #83ADFF;
+  border-style: solid;
+  margin: 2px 0 2px 0;
+}
+
+#accordion div div {
+  border-style: none;
+  margin: 0px;
+  padding-left: 5px;
+}
+
+#accordion div h3 {
+  border-style: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  background-color:  #A3BDFF;
+  margin: 0px;
+}
