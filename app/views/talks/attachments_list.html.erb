@@ -1,0 +1,15 @@
+<!--% unless @talk.attachments.empty? %-->
+	<!--button id="attachments">Pokaż załączniki</button-->
+	<div class="attachments">
+	<ul>
+		<%= render @attachments%>
+	</ul> 
+	<%= will_paginate @attachments, :param_name => :attachments_page  %>
+	</div>
+<!--% end %-->
+<br />
+
+<script language="javascript">
+    formatLinkForPaginationURL("#attachments_display_section");
+</script>
+

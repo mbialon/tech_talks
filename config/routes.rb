@@ -5,6 +5,10 @@ TechTalks::Application.routes.draw do
   devise_for :users
 
   root :to => "talks#index"
+
+  match "/talks/:id/users_list" => "talks#users_list"
+  match "/talks/:id/attachments_list" => "talks#attachments_list"
+  match "/talks/:id/comments_list" => "talks#comments_list"
   
   resources :talks do
     resources :comments
@@ -16,7 +20,12 @@ TechTalks::Application.routes.draw do
   end
   
   match "/users/:id" => "users#show", :as => :user
+
+
+
+
   #resources :users
+  
 
   
   

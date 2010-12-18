@@ -1,4 +1,4 @@
 <li>
-		<%= link_to attachment.filename.nil? ? attachment.path : attachment.filename, download_talk_attachment_path(@talk), :action => "download" %>
+  <%= link_to attachment.filename.nil? ? attachment.path : attachment.filename, download_talk_attachment_path(:talk_id => params[:id]), :action => "download" %>
 </li>
 

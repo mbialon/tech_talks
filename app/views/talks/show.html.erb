@@ -25,36 +25,42 @@ Opis:
 <% end %>
 <br/>
 
-<% unless @talk.users.empty? %>
-	<button id="attendants">Pokaż kursantów</button>
-	<div class="attendants">
-	<table>
-		<%= render @users %>
-	</table> 
-	<%= will_paginate @users, :param_name => :users_page%>
-	</div>
-<% end %>
-<br />
-
-<% unless @talk.attachments.empty? %>
-	<button id="attachments">Pokaż załączniki</button>
-	<div class="attachments">
-	<ul>
-		<%= render @attachments%>
-	</ul> 
-	<%= will_paginate @attachments, :param_name => :attachments_page  %>
-	</div>
-<% end %>
-<br />
-
-<% unless @talk.comments.empty? %>
-<button id="comments">Pokaż komentarze</button>
-<div class="comments">
 <%= link_to 'New comment', new_talk_comment_path(@talk) %>
-	<table>
-	<%= render @comments %>
-	</table>
-	<%= will_paginate @comments,:param_name => :comments_page %>
-	</div>
-<% end %>
-<br />
+
+<div id="accordion">
+<div>
+<h3><a href="#">Kursanci</a></h3>
+<div id="users_display_section"></div>
+</div>
+<div>
+<h3><a href="#">Załączniki</a></h3>
+<div id="attachments_display_section"></div>
+</div>
+<div>
+<h3><a href="#">Komentarze</a></h3>
+<div id="comments_display_section"></div>
+</div>
+
+</div>
+
+<script language="javascript">
+$(document).ready(function(){
+    $("#users_display_section").load('/talks/<%= params[:id] %>/users_list');
+    $("#attachments_display_section").load('/talks/<%= params[:id] %>/attachments_list');
+    $("#comments_display_section").load('/talks/<%= params[:id] %>/comments_list');
+    
+    $('#accordion h3').click(function() {
+		$(this).next().toggle('slow');
+		return false;
+	}).next().hide();
+});
+
+/*$(function(){
+
+				// Accordion
+				$("#accordion").accordion({ header: "h3",
+								collapsible: true				});
+});*/
+
+  
+</script>

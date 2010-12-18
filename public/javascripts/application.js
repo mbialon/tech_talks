@@ -2,6 +2,37 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 
+function formatLinkForPaginationURL(location) {
+  //$("div.pagination").find("a").each(function(){
+    $(location).find("div.pagination a").each(function(){
+      var linkElement = $(this);
+      var paginationURL = linkElement.attr("href");
+      linkElement.attr({
+          "url": paginationURL,
+          "href": "#"
+      });
+      
+      linkElement.click(function() {
+          $(location).load(
+            $(this).attr('url')
+          );
+          return false;
+      });
+     
+      //$(this).css('background-color','red');
+  });
+  
+  //${'div#users_display_section div.pagination').find("a").each(function(){
+  //${"div.pagination").find("a").each(function(){
+  
+    //alert($(this));
+    
+     
+}
+
+
+
+/*
 $(document).ready(function(){
 
 var zapisaniHidden = "Pokaż kursantów";
@@ -76,4 +107,4 @@ $("div.attachments").hide();
 
 $("div.comments").hide();
 
-});
+});*/

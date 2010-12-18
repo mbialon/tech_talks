@@ -1,0 +1,15 @@
+<!--% unless @talk.users.empty? %-->
+	<!--button id="attendants">Pokaż kursantów</button-->
+		<div class="attendants">
+	<table>
+		<%= render @users %>
+	</table> 
+	<%= will_paginate @users, :param_name => :users_page%>
+	</div>
+<!--% end %-->
+<br />
+
+<script language="javascript">
+    formatLinkForPaginationURL("#users_display_section");
+</script>
+

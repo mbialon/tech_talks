@@ -8,7 +8,7 @@ class TalksController < ApplicationController
   
   def show
     @talk = Talk.find(params[:id])
-    @users = @talk.users.all.paginate(:page => params[:users_page], :per_page => 2)
+    #@users = @talk.users.all.paginate(:page => params[:users_page], :per_page => 2)
     @attachments = @talk.attachments.all.paginate(:page => params[:attachments_page], :per_page => 2)
     @comments = @talk.comments.all.paginate(:page => params[:comments_page], :per_page => 2)
     @attendance = Attendance.new
@@ -51,4 +51,21 @@ class TalksController < ApplicationController
     @talk.destroy
     redirect_to talks_path
   end
+  
+  
+  def users_list
+    @users = Talk.find(params[:id]).users.all.paginate(:page => params[:users_page], :per_page => 2)
+    render :layout => false   
+  end
+  
+  def attachments_list
+    @attachments = Talk.find(params[:id]).attachments.all.paginate(:page => params[:attachments_page], :per_page => 2)
+    render :layout => false   
+  end
+  
+  def comments_list
+    @comments = Talk.find(params[:id]).comments.all.paginate(:page => params[:comments_page], :per_page => 2)
+    render :layout => false   
+  end
+  
 end

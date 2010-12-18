@@ -1,0 +1,14 @@
+<!--% unless @talk.comments.empty? %-->
+<!--button id="comments">Pokaż komentarze</button-->
+<div class="comments">
+	<table>
+	<%= render @comments %>
+	</table>
+	<%= will_paginate @comments,:param_name => :comments_page %>
+	</div>
+<!--% end %-->
+<br />
+
+<script language="javascript">
+    formatLinkForPaginationURL("#comments_display_section");
+</script>
