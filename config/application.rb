@@ -9,9 +9,9 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module TechTalks
   class Application < Rails::Application
     # Added by the Rails 3 jQuery Template
-	  # http://github.com/lleger/Rails-3-jQuery, written by Logan Leger
-	  config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
-	  config.action_view.javascript_expansions[:cdn] = %w(https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js rails)
+    # http://github.com/lleger/Rails-3-jQuery, written by Logan Leger
+    config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
+    config.action_view.javascript_expansions[:cdn] = %w(https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js rails)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -33,7 +33,7 @@ module TechTalks
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = :pl
+    # config.i18n.default_locale = :pl
 
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
