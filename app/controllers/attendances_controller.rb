@@ -7,12 +7,12 @@ class AttendancesController < ApplicationController
 			@attendance = Attendance.new(:talk_id => talk_id, :user_id => user_id)
 			if @attendance.save
 				#redirect_to talks_path
-				flash[:success] = "Zostałeś zapisany na kurs"
+				flash[:success] = t 'attendance.success'
 			else
-				flash[:error] = "Zapis na kurs nie powiódł się"
+				flash[:error] = t 'attendance.error.saving'
 			end
 		else
-			flash[:error] = "Jesteś już zapisany na ten kurs"
+			flash[:error] = t 'attendance.error.already_attending'
 		end
 		
 		redirect_to talk_path(talk_id)
