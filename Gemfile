@@ -11,6 +11,7 @@ gem 'devise'
 gem 'formtastic'
 gem 'maruku'
 gem 'will_paginate'
+#gem 'jqrating'
 
 #gem 'jrails'
 
