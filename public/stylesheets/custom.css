@@ -2,6 +2,11 @@
   width: 900px;
 }
 
+.clear {
+  clear: both;
+  float: none;
+}
+
 .round {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -19,6 +24,7 @@ header {
 
 header img{
   /*background: #999;*/
+
 }
 
 section {
@@ -57,6 +63,10 @@ nav {
   background-color: white;
   padding: 0 0.7em;
   white-space: nowrap;
+  
+  
+    /*  width: 50%;
+    float: right;*/
 }
 
 
@@ -156,4 +166,34 @@ footer nav {
   padding-left: 5px;
   background-color:  #A3BDFF;
   margin: 0px;
+}
+
+.rateit {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #83ADFF;
+  width: 45px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.rateit  p{
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.linka {
+  cursor: pointer;
+}
+
+.linka a{
+  text-decoration: none;
+}
+
+.linka a:hover{
+  text-decoration: none;
+}
+
+.linka a:visiteds{
+  text-decoration: none;
 }

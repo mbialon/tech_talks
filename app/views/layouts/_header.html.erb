@@ -1,22 +1,26 @@
 <header>
 	<!--a href="/"><h1>Tech Talks</h1></a-->
+	
 	<nav class="round">
 		<ul>
 			<li><%= link_to "Home", root_path %></li>
-			<li>
+			
 				<% if user_signed_in? %>
+				<li>
 						<%= link_to 'Profil', user_path(current_user) %>
+						</li>
 				<% end %>
-				</li>
-			<li>
 				<% if user_signed_in? %>
+				<li>
 						<%= link_to 'Sign out', destroy_user_session_path %>
+						</li>                                                    
 					<% else %>
+					<li>
             <%= link_to 'Sign in', new_user_session_path %>
             or
             <%= link_to 'Sign up', new_user_registration_path %> 
+						</li>
 				<% end %>
-				</li>
 		</ul>
 		<% if user_signed_in? %>
 		<ul>
@@ -28,3 +32,4 @@
 	</nav>
 	<%= link_to logo, root_path %>
 </header>
+

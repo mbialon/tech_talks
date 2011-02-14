@@ -3,7 +3,6 @@
 
 
 function formatLinkForPaginationURL(location) {
-  //$("div.pagination").find("a").each(function(){
     $(location).find("div.pagination a").each(function(){
       var linkElement = $(this);
       var paginationURL = linkElement.attr("href");
@@ -19,21 +18,14 @@ function formatLinkForPaginationURL(location) {
           return false;
       });
      
-      //$(this).css('background-color','red');
   });
-  
-  //${'div#users_display_section div.pagination').find("a").each(function(){
-  //${"div.pagination").find("a").each(function(){
-  
-    //alert($(this));
-    
-     
 }
 
 
 
-/*
-$(document).ready(function(){
+
+    
+    /*
 
 var zapisaniHidden = "Pokaż kursantów";
 var zapisaniShown = "Ukryj kursantów";

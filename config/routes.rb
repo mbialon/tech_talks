@@ -17,9 +17,16 @@ TechTalks::Application.routes.draw do
     resources :attachments do
       get :download, :on => :member
     end
+  	
+  	post :rate, :on => :member
+  	get :rateit, :on => :member
   end
 
   match "/users/:id" => "users#show", :as => :user
+  
+  
+  
+  
 
 
 

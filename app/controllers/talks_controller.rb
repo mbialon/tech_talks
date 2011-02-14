@@ -13,6 +13,7 @@ class TalksController < ApplicationController
     @comments = @talk.comments.all.paginate(:page => params[:comments_page], :per_page => 2)
     @attendance = Attendance.new
     @attachment = Attachment.new
+    
   end
 
   def new
@@ -52,6 +53,19 @@ class TalksController < ApplicationController
     redirect_to talks_path
   end
   
+  def rate
+    @talk = Talk.find(params[:id])
+    @talk.rate(params[:stars], current_user, params[:dimension])
+    #@talk.rate(params[:stars], @talk, params[:dimension])
+    average = @talk.rate_average(true, params[:dimension])
+    width = (average / @talk.class.max_stars.to_f) * 100
+    render :json => {:id => @talk.wrapper_dom_id(params), :average => average, :width => width}
+  end
+  
+  def rateit
+    @talk = Talk.find(params[:id])
+    render :layout => false
+  end
   
   def users_list
     @users = Talk.find(params[:id]).users.all.paginate(:page => params[:users_page], :per_page => 2)
@@ -68,4 +82,4 @@ class TalksController < ApplicationController
     render :layout => false   
   end
   
-end
+  end

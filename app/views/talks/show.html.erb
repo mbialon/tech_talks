@@ -12,6 +12,12 @@ Opis:
   </p>
 <% end %>
 
+<div class="rateit round">
+  <p>Oceń</p>
+</div>
+
+<!--button id="rateit">Open the dialog</button--> 
+
 <% if user_signed_in? %>
   <%= link_to 'Add event', new_talk_event_path(@talk) %>
 <% end %>
@@ -43,19 +49,22 @@ Opis:
 
 <div id="accordion">
   <div class="round">
-    <h3 class="round" ><a href="#">Kursanci</a></h3>
+    <h3 class="round linka" ><a href="#">Kursanci</a></h3>
     <div id="users_display_section"></div>
   </div>
   <div class="round">
-    <h3 class="round"><a href="#">Załączniki</a></h3>
+    <h3 class="round linka"><a href="#">Załączniki</a></h3>
     <div id="attachments_display_section"></div>
   </div>
   <div class="round">
-    <h3 class="round"><a href="#">Komentarze</a></h3>
+    <h3 class="round linka"><a href="#">Komentarze</a></h3>
     <div id="comments_display_section"></div>
   </div>
 </div>
 
+<%= ratings_for @talk, :dimension => :topic %>
+
+<%= ratings_for @talk, :dimension => :host %>
 
 <!--div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
   <div>
@@ -96,14 +105,19 @@ $(document).ready(function(){
 		$(this).next().toggle('slow');
 		return false;
 	}).next().hide();//*/
+	
+    var $dialog = $('<div></div>')
+		.load("/talks/<%= params[:id] %>/rateit")
+		.dialog({
+			autoOpen: false,
+			title: 'Oceny'
+		});
+    
+		
+	$('.rateit').click(function() {
+		$dialog.dialog('open');
+		return false;
+	});
 });
 
-/*$(function(){
-
-				// Accordion
-				$("#accordion").accordion({ header: "h3",
-								collapsible: true				});
-});//*/
-
-  
 </script>
