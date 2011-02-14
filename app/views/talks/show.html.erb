@@ -16,8 +16,6 @@ Opis:
   <p>Oceń</p>
 </div>
 
-<!--button id="rateit">Open the dialog</button--> 
-
 <% if user_signed_in? %>
   <%= link_to 'Add event', new_talk_event_path(@talk) %>
 <% end %>
@@ -62,38 +60,13 @@ Opis:
   </div>
 </div>
 
+<!-- NA STRONIE -->
 <%= ratings_for @talk, :dimension => :topic %>
-
+<h3>Temat</h3>
+<%= ratings_for @talk, :dimension => :materials %>
+<h3>Jakość materiałów</h3>
 <%= ratings_for @talk, :dimension => :host %>
-
-<!--div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
-  <div>
-    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all">
-      
-      <a href="#">Kursanci</a>
-    </h3>
-    <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" id="users_display_section"></div>
-  </div>
-  <div>
-    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all">
-      
-      <a href="#">Załączniki</a>
-    </h3>
-    <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" id="attachments_display_section"></div>
-  </div>
-  <div>
-    <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all">
-      
-      <a href="#">Komentarze</a>
-    </h3>
-    <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" id="comments_display_section"></div>
-  </div>
-</div-->
-
-
-
-
-
+<h3>Prowadzący</h3>
 
 <script language="javascript">
 $(document).ready(function(){

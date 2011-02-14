@@ -56,7 +56,6 @@ class TalksController < ApplicationController
   def rate
     @talk = Talk.find(params[:id])
     @talk.rate(params[:stars], current_user, params[:dimension])
-    #@talk.rate(params[:stars], @talk, params[:dimension])
     average = @talk.rate_average(true, params[:dimension])
     width = (average / @talk.class.max_stars.to_f) * 100
     render :json => {:id => @talk.wrapper_dom_id(params), :average => average, :width => width}

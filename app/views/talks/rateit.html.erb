@@ -1,6 +1,29 @@
-<p>Temat</p>
 <%= ratings_for @talk, :dimension => :topic %>
-<p>Jakość materiałów</p>
+<h3>Temat</h3>
 <%= ratings_for @talk, :dimension => :materials %>
-<p>Prowadzący</p>
+<h3>Jakość materiałów</h3>
 <%= ratings_for @talk, :dimension => :host %>
+<h3>Prowadzący</h3>
+
+<!-- NA STRONIE -->
+<script>
+
+$(document).ready(function(){
+          $('.ajaxful-rating a').click(function(){
+            $.ajax({
+              type: $(this).attr('data-method'),
+              url: $(this).attr('href'),
+              data: {
+                      stars: $(this).attr('data-stars'),
+                      dimension: $(this).attr('data-dimension'),
+                      size: $(this).attr('data-size'),
+                      show_user_rating: $(this).attr('data-show_user_rating')
+                    },
+              success: function(response){
+                $('#' + response.id + ' .show-value').css('width', response.width + '%');
+              }
+            });
+            return false;
+          });
+});
+</script>
