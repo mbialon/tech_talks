@@ -7,4 +7,5 @@ public/data/*
 
 *.swp
 *~
+.idea
 
