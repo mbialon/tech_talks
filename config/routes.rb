@@ -1,6 +1,5 @@
 TechTalks::Application.routes.draw do
-
- #get "users/show"
+  #get "users/show"
 
   devise_for :users
 
@@ -9,26 +8,27 @@ TechTalks::Application.routes.draw do
   match "/talks/:id/users_list" => "talks#users_list"
   match "/talks/:id/attachments_list" => "talks#attachments_list"
   match "/talks/:id/comments_list" => "talks#comments_list"
-  
+
   resources :talks do
     resources :comments
     resources :attendances
-    
+    resources :events
+
     resources :attachments do
-    	get :download, :on => :member
-  	end
+      get :download, :on => :member
+    end
   end
-  
+
   match "/users/:id" => "users#show", :as => :user
 
 
 
 
   #resources :users
-  
 
-  
-  
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

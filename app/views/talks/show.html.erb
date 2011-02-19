@@ -13,6 +13,16 @@ Opis:
 <% end %>
 
 <% if user_signed_in? %>
+  <%= link_to 'Add event', new_talk_event_path(@talk) %>
+<% end %>
+
+<ol>
+  <% @talk.events.each do |e| %>
+    <li><%= e.scheduled_at %> | <%= e.user.email %></li>
+  <% end %>
+</ol>
+
+<% if user_signed_in? %>
   <%= link_to "Zapisz sie", new_talk_attendance_path(@talk) %>
 <% end %>
 <br/>

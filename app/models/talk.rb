@@ -8,4 +8,5 @@ class Talk < ActiveRecord::Base
   has_many :users, :through => :attendances
   
   has_many :attachments
+  has_many :events
 end
