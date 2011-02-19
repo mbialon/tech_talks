@@ -13,4 +13,20 @@ class EventsController < ApplicationController
       render :action => :new
     end
   end
+
+  def edit
+    @talk = Talk.find params[:talk_id]
+    @event = @talk.events.find params[:id]
+  end
+
+  def update
+    @talk = Talk.find params[:talk_id]
+    @event = @talk.events.find params[:id]
+    @event.update_attributes params[:event]
+    if @event.save
+      redirect_to talk_path(@talk)
+    else
+      render :action => :edit
+    end
+  end
 end

@@ -18,7 +18,11 @@ Opis:
 
 <ol>
   <% @talk.events.each do |e| %>
-    <li><%= e.scheduled_at %> | <%= e.user.email %></li>
+    <li>
+      <%= e.scheduled_at %> |
+      <%= e.user %> |
+      <%= link_to 'Edit', edit_talk_event_path(@talk, e) %>
+    </li>
   <% end %>
 </ol>
 
