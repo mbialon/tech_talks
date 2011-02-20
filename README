@@ -1,3 +1,21 @@
+Ajaxful_rating_jquery (https://github.com/kamui/ajaxful_rating_jq)
+  Wykonać należy "bundle install"
+  Po instalacji należy przejść do odpowiedniego katalogu z aktualnie uzywanym gemsetem
+  i znalezc ten projekt (wersja 2.2.9). w katalogu lib/axr jest plik helpers.rb
+  należy nadgrać go plikiem z projektu tech_talks z katalogu vendor.
+  Zawiera on 2 wywołania html_safe, co powoduje, ze <script "zawartosc" /> jest osadzany w dokumencie
+  a nie wyswietlany (polecam sprawdzic efekt przed i po )
+  
+jquery-rails (https://github.com/kamui/ajaxful_rating_jq)
+  bundle install
+  rails generate jquery:instal
+
+  
+  
+  
+  
+  
+----DOMYSLNY TEKST----
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
