@@ -25,7 +25,8 @@ Opis:
     <li>
       <%= e.scheduled_at %> |
       <%= e.user %> |
-      <%= link_to 'Edit', edit_talk_event_path(@talk, e) %>
+      <%= link_to 'Edit', edit_talk_event_path(@talk, e) %> |
+      <%= link_to 'Delete', talk_event_path(@talk, e), :confirm => "Are you sure?", :method => :delete %>
     </li>
   <% end %>
 </ol>

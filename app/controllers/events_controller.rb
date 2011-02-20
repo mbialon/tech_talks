@@ -29,4 +29,11 @@ class EventsController < ApplicationController
       render :action => :edit
     end
   end
+
+  def destroy
+    @talk = Talk.find params[:talk_id]
+    @event = @talk.events.find params[:id]
+    @event.destroy
+    redirect_to talk_path(@talk)
+  end
 end
