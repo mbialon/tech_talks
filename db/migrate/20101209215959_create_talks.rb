@@ -4,7 +4,7 @@ class CreateTalks < ActiveRecord::Migration
       t.string :title
       t.text :abstract
 
-      t.references :project
+      t.references :user
 
       t.timestamps
     end
