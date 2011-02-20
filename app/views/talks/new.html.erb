@@ -4,6 +4,7 @@
   <%= f.inputs do %>
     <%= f.input :title %>
     <%= f.input :abstract %>
+    <%= f.input :project, :as => :select, :collection => Project.order("title ASC") %>
   <% end %>
   <%= f.buttons %>
 <% end %>

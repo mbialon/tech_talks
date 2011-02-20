@@ -1,7 +1,27 @@
 <h1>Profil użytkownika</h1>
-<h3>Tematy do których jesteś zapisany:</h3>
+
+<h4>Stworzone projekty:</h4>
+<% unless @createdprojects.empty? %>
+<div class="talks">
+	<ol>
+		<%= render @createdprojects%>
+	</ol> 
+	<%= will_paginate @createdprojects, :param_name => :createdprojects_page  %>
+	</div>
+<% end %>
+
+<h4>Stworzone warsztaty:</h4>
+<% unless @createdtalks.empty? %>
+<div class="talks">
+	<ol>
+		<%= render @createdtalks%>
+	</ol> 
+	<%= will_paginate @createdtalks, :param_name => :createdtalks_page  %>
+	</div>
+<% end %>
+
+<h4>Tematy do których jesteś zapisany:</h4>
 <% unless @talks.empty? %>
-	<!--button id="attachments">Pokaż załączniki</button-->
 	<div class="talks">
 	<ol>
 		<%= render @talks%>
