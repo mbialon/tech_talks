@@ -11,9 +11,8 @@ gem 'devise'
 gem 'formtastic'
 gem 'maruku'
 gem 'will_paginate'
-#gem 'jqrating'
 
-#gem 'jrails'
+gem 'jquery-rails', '>= 0.2.6'
 
 # Use unicorn as the web server
 # gem 'unicorn'
