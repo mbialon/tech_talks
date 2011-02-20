@@ -3,22 +3,24 @@ TechTalks::Application.routes.draw do
 
   devise_for :users
 
-  root :to => "talks#index"
+  root :to => "projects#index"
 
   match "/talks/:id/users_list" => "talks#users_list"
   match "/talks/:id/attachments_list" => "talks#attachments_list"
   match "/talks/:id/comments_list" => "talks#comments_list"
 
-  resources :talks do
-    resources :comments
-    resources :attendances
-    resources :events
+  resources :projects do
+    resources :talks do
+      resources :comments
+      resources :attendances
+      resources :events
 
-    resources :attachments do
-      get :download, :on => :member
+      resources :attachments do
+        get :download, :on => :member
+      end
+      get :rateit, :on => :member
+      post :rate, :on => :member
     end
-  	get :rateit, :on => :member
-  	post :rate, :on => :member
   end
 
   match "/users/:id" => "users#show", :as => :user

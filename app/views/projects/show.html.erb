@@ -1,0 +1,22 @@
+<h1>PPPPPP<%= @project.title %></h1>
+<p class="smallfont"> Project stworzony przez: <%= @project.user.email %> w dniu: <%= trimDate(@project.created_at) %></p>
+Opis:
+<div class="talkcontent round">
+<p><%= render_markdown(@project.abstract) %></p>
+</div>
+<% if user_signed_in? && @project.user == current_user %>
+  <p>
+    <%= link_to 'Edit', edit_project_path(@project) %>
+    |
+    <%= link_to 'Destroy', project_path(@project), :confirm => "Are you sure?", :method => :delete %>
+  </p>
+<% end %>
+
+
+<ul>
+	<%= render @talks%>
+</ul> 
+<%= will_paginate @talks, :param_name => :talks_page  %>
+</div>
+
+
