@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   
   def show
     @project = Project.find(params[:id])
-    @talks = @project.all.paginate(:page => params[:talks_page], :per_page => 2)
+    @talks = @project.talks.all.paginate(:page => params[:talks_page], :per_page => 2)
 
   end
 
@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(params[:talk])
+    @project = Project.new(params[:project])
     @project.user = current_user
     if @project.save
       redirect_to project_path(@project)

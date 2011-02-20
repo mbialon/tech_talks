@@ -2,7 +2,7 @@ class Talk < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :abstract
 
-  belongs_to :user
+  belongs_to :project
   has_many :comments
   has_many :attendances
   has_many :users, :through => :attendances

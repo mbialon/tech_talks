@@ -3,7 +3,5 @@
 <% end %>
 
 <%= will_paginate %>                      
-<% @projects.each do |project| %>
-  <h1><%= link_to h(project.title), project_path(project) %></h1>
-<% end %>
+  <%= render @projects %>
 <%= will_paginate %>
