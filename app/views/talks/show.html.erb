@@ -23,10 +23,17 @@ Opis:
 <ol>
   <% @talk.events.each do |e| %>
     <li>
-      <%= e.scheduled_at %> |
-      <%= e.user %> |
-      <%= link_to 'Edit', edit_talk_event_path(@talk, e) %> |
+    <%= e.scheduled_at %>
+    |
+    <%= e.user %>
+    <% if user_signed_in? && e.user == current_user %>
+      |
+      <%= link_to 'Edit', edit_talk_event_path(@talk, e) %>
+    <% end %>
+    <% if user_signed_in? && e.user == current_user %>
+      |
       <%= link_to 'Delete', talk_event_path(@talk, e), :confirm => "Are you sure?", :method => :delete %>
+    <% end %>
     </li>
   <% end %>
 </ol>

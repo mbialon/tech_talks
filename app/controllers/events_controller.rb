@@ -17,11 +17,13 @@ class EventsController < ApplicationController
   def edit
     @talk = Talk.find params[:talk_id]
     @event = @talk.events.find params[:id]
+    raise Exception.new("access denied") unless user_signed_in? && @event.user == current_user
   end
 
   def update
     @talk = Talk.find params[:talk_id]
     @event = @talk.events.find params[:id]
+    raise Exception.new("access denied") unless user_signed_in? && @event.user == current_user
     @event.update_attributes params[:event]
     if @event.save
       redirect_to talk_path(@talk)
@@ -33,6 +35,7 @@ class EventsController < ApplicationController
   def destroy
     @talk = Talk.find params[:talk_id]
     @event = @talk.events.find params[:id]
+    raise Exception.new("access denied") unless user_signed_in? && @event.user == current_user
     @event.destroy
     redirect_to talk_path(@talk)
   end
