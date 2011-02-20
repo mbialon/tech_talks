@@ -35,6 +35,9 @@ Opis:
       <%= link_to 'Delete', talk_event_path(@talk, e), :confirm => "Are you sure?", :method => :delete %>
     <% end %>
     </li>
+    <% unless e.remarks.blank? %>
+      <%= render_markdown e.remarks %>
+    <% end %>
   <% end %>
 </ol>
 
