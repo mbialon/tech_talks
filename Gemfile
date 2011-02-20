@@ -14,7 +14,7 @@ gem 'will_paginate'
 
 gem 'jquery-rails', '>= 0.2.6'
 
-gem 'ajaxful_rating_jquery'
+#gem 'ajaxful_rating_jquery'
 
 # Use unicorn as the web server
 # gem 'unicorn'
