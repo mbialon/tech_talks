@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   def new
     @talk = Talk.find params[:talk_id]
-    @event = Event.new
+    @event = Event.new(:user => current_user)
   end
 
   def create
