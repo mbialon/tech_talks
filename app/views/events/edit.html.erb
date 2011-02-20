@@ -1,9 +1,2 @@
 <h2>Edit event</h2>
-
-<%= semantic_form_for [@talk, @event] do |f| %>
-  <%= f.inputs do %>
-    <%= f.input :scheduled_at %>
-    <%= f.input :user %>
-  <% end %>
-  <%= f.buttons %>
-<% end %>
+<%= render :partial => "form" %>

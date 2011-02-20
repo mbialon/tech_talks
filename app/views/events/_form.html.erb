@@ -1,0 +1,8 @@
+<%= semantic_form_for [@talk, @event] do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :scheduled_at %>
+    <%= f.input :user %>
+    <%= f.input :remarks %>
+  <% end %>
+  <%= f.buttons %>
+<% end %>
