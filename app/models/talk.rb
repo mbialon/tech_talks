@@ -9,7 +9,8 @@ class Talk < ActiveRecord::Base
   
   has_many :attachments
   has_many :events
-  ajaxful_rateable :stars => 5, :dimensions => [:topic, :materials, :host] #, :allow_update => false
+  
+  ajaxful_rateable :stars => 5, :dimensions => [:topic, :materials, :host] , :allow_update => false
   
   belongs_to :user
 end

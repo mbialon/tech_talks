@@ -12,9 +12,15 @@ Opis:
   </p>
 <% end %>
 
+<% if user_signed_in? && !zapisany? %>
+  <h3><%= link_to "Zapisz sie", new_talk_attendance_path(@talk) %></h3>
+<% end %>
+
+<% if user_signed_in? %>
 <div class="rateit round">
   <p>Oceń</p>
 </div>
+<% end %>
 
 <% if user_signed_in? %>
   <%= link_to 'Add event', new_talk_event_path(@talk) %>
@@ -41,9 +47,6 @@ Opis:
   <% end %>
 </ol>
 
-<% if user_signed_in? %>
-  <%= link_to "Zapisz sie", new_talk_attendance_path(@talk) %>
-<% end %>
 <br/>
 
 <% if user_signed_in? %>
@@ -54,7 +57,10 @@ Opis:
 <% end %>
 <br/>
 
+<% if user_signed_in? %>
 <%= link_to 'New comment', new_talk_comment_path(@talk) %>
+<% end %>
+
 
 <div id="accordion">
   <div class="round">
@@ -72,12 +78,12 @@ Opis:
 </div>
 
 <!-- NA STRONIE -->
-<%= ratings_for @talk, :dimension => :topic %>
+<!--<%= ratings_for @talk, :dimension => :topic %>
 <h3>Temat</h3>
 <%= ratings_for @talk, :dimension => :materials %>
 <h3>Jakość materiałów</h3>
 <%= ratings_for @talk, :dimension => :host %>
-<h3>Prowadzący</h3>
+<h3>Prowadzący</h3>-->
 
 <script language="javascript">
 $(document).ready(function(){
