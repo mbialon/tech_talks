@@ -1,8 +1,8 @@
 class CreateAttendances < ActiveRecord::Migration
   def self.up
     create_table :attendances do |t|
-      t.integer :user_id
-      t.integer :talk_id
+      t.references :user
+      t.references :talk
 
       t.timestamps
     end
