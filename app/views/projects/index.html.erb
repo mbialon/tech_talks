@@ -2,6 +2,11 @@
   <%= link_to 'New project', new_project_path %>
 <% end %>
 
-<%= will_paginate %>                      
-  <%= render @projects %>
-<%= will_paginate %>
+
+<% unless @projects.empty? %>
+  <%= will_paginate %>                      
+    <%= render @projects %>
+  <%= will_paginate %>
+<% else %>
+  <p> Brak projektów! </p>
+<% end %>

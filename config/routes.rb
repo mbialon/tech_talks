@@ -1,43 +1,36 @@
 TechTalks::Application.routes.draw do
-  #get "users/show"
+  
+  #get "pages/index"
 
   devise_for :users
 
-  root :to => "projects#index"
+  #root :to => "projects#index"
+  root :to => "pages#index"
 
   match "/talks/:id/users_list" => "talks#users_list"
   match "/talks/:id/attachments_list" => "talks#attachments_list"
   match "/talks/:id/comments_list" => "talks#comments_list"
 
-  resources :projects do
-    resources :talks do
-      resources :comments
-      resources :attendances
-      resources :events
+  
+  resources :projects
+  
+  resources :talks do
+    resources :comments
+    resources :attendances
+    resources :events
 
-      resources :attachments do
-        get :download, :on => :member
-      end
-      get :rateit, :on => :member
-      post :rate, :on => :member
+    resources :attachments do
+      get :download, :on => :member
     end
+    get :rateit, :on => :member
+    post :rate, :on => :member
   end
 
   match "/users/:id" => "users#show", :as => :user
   
   
-  
-  
 
-
-
-
-  #resources :users
-
-
-
-
-  # The priority is based upon order of creation:
+# The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:

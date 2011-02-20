@@ -2,12 +2,16 @@
   <%= link_to 'New talk', new_talk_path %>
 <% end %>
 
-<%= will_paginate %>                      
-<% @talks.each do |talk| %>
-  <h1><%= link_to h(talk.title), talk_path(talk) %></h1>
-  Opis:
-  <div class="talkcontent round">
-    <p><%= render_markdown(talk.abstract) %></p>
-  </div>
+<% unless @talks.empty? %>
+  <%= will_paginate %>                      
+  <% @talks.each do |talk| %>
+    <h1><%= link_to h(talk.title), talk_path(talk) %></h1>
+    Opis:
+    <div class="talkcontent round">
+      <p><%= render_markdown(talk.abstract) %></p>
+    </div>
+  <% end %>
+  <%= will_paginate %>
+<% else %>
+  <p> Brak warsztatów! </p>
 <% end %>
-<%= will_paginate %>

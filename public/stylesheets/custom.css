@@ -55,6 +55,7 @@ a:visited{
   color: #069;
 }
 
+
 nav {
   float: right;
 }
@@ -65,9 +66,8 @@ nav {
   white-space: nowrap;
   
   
-    /*  width: 50%;
-    float: right;*/
 }
+
 
 
 nav ul{
@@ -196,4 +196,8 @@ footer nav {
 
 .linka a:visited{
   text-decoration: none;
+}
+
+.longspaces li a{
+  padding: 0 15px;
 }

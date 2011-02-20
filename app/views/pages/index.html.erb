@@ -1,0 +1,22 @@
+<h1><%= link_to 'Projekty', projects_path %></h1>
+  
+<% unless @projects.empty? %>
+  <ul>
+    <%= render @projects%>
+  </ul> 
+  <%= will_paginate @projects, :param_name => :projects_page  %>
+<% else %>
+  <p> Brak projektów! </p>
+<% end %>
+
+
+<h1><%= link_to 'Warsztaty', talks_path %></h1>
+<% unless @talks.empty? %>
+  <ul>
+    <%= render @talks%>
+  </ul> 
+  <%= will_paginate @talks, :param_name => :talks_page  %>
+<% else %>
+  <p> Brak warsztatów! </p>
+<% end %>
+
